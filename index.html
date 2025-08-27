@@ -2,38 +2,124 @@
 <html lang="zh-Hans" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>现代游戏厅 · 单机合集</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>🎮 现代游戏厅 · 黑金终极豪华版</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      color: #f5d06f;
+      text-align: center;
+    }
+    header {
+      padding: 1rem;
+      background: rgba(20, 20, 20, 0.9);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+      border-bottom: 1px solid #d4af37;
+    }
+    .brand {
+      font-size: 1.6rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, #d4af37, #f5d06f);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 12px rgba(212,175,55,0.6);
+    }
+    nav { margin-top: 0.5rem; }
+    .nav-btn {
+      margin: 0.3rem;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid #d4af37;
+      border-radius: 25px;
+      background: #111;
+      color: #f5d06f;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .nav-btn:hover {
+      background: #d4af37;
+      color: #000;
+      transform: scale(1.1);
+    }
+    main { padding: 2rem 1rem; }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 14px rgba(245,208,111,0.7);
+    }
+    p.muted { font-size: 0.9rem; color: #b8a95a; margin-bottom: 2rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      padding: 1.2rem 1rem;
+      border: 1px solid #d4af37;
+      border-radius: 15px;
+      background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+      color: #f5d06f;
+      font-size: 1rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.6);
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      background: #d4af37;
+      color: #000;
+      transform: translateY(-6px) scale(1.05);
+    }
+    canvas, #ttt-grid, #tw-grid {
+      margin: 1.2rem auto;
+      border-radius: 12px;
+      border: 1px solid #d4af37;
+      background: #111;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6), 0 0 0 2px rgba(212,175,55,0.3) inset;
+    }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">🎮 现代游戏厅</div>
-    <nav class="nav">
-      <button class="nav-btn" data-view="home">主页</button>
-      <button class="nav-btn" data-view="gomoku">五子棋</button>
-      <button class="nav-btn" data-view="ttt">井字棋</button>
-      <button class="nav-btn" data-view="snake">贪吃蛇</button>
-      <button class="nav-btn" data-view="tw48">2048</button>
+  <header>
+    <div class="brand">✨ 现代游戏厅 · 黑金终极豪华版 ✨</div>
+    <nav>
+      <button class="nav-btn" data-view="home">🏠 首页</button>
+      <button class="nav-btn" data-view="gomoku">⚫⚪ 五子棋</button>
+      <button class="nav-btn" data-view="ttt">❌⭕ 井字棋</button>
+      <button class="nav-btn" data-view="snake">🐍 贪吃蛇</button>
+      <button class="nav-btn" data-view="tw48">🔢 2048</button>
     </nav>
-    <button id="open-panel" class="icon-btn">⚙️</button>
   </header>
+
   <main id="app">
     <section id="view-home" class="view active">
-      <h1>单机小游戏 · 即点即玩</h1>
-      <p class="muted">零后台 · 手机优化 · 本地统计</p>
+      <h1>单机小游戏 · 黑金豪华体验</h1>
+      <p class="muted">零后端 · 手机优化 · 高端质感</p>
       <div class="grid">
-        <button class="card" data-view="gomoku">⚫⚪ 五子棋</button>
-        <button class="card" data-view="ttt">❌⭕ 井字棋</button>
-        <button class="card" data-view="snake">🐍 贪吃蛇</button>
-        <button class="card" data-view="tw48">2048</button>
+        <button class="card" data-view="gomoku">⚫⚪ 开玩 五子棋</button>
+        <button class="card" data-view="ttt">❌⭕ 开玩 井字棋</button>
+        <button class="card" data-view="snake">🐍 开玩 贪吃蛇</button>
+        <button class="card" data-view="tw48">🔢 开玩 2048</button>
       </div>
     </section>
-    <section id="view-gomoku" class="view"><canvas id="gomoku-canvas"></canvas></section>
-    <section id="view-ttt" class="view"><div id="ttt-grid"></div></section>
-    <section id="view-snake" class="view"><canvas id="snake-canvas"></canvas></section>
-    <section id="view-tw48" class="view"><div id="tw-grid"></div></section>
+
+    <section id="view-gomoku" class="view">
+      <canvas id="gomoku-canvas" width="300" height="300"></canvas>
+    </section>
+
+    <section id="view-ttt" class="view">
+      <div id="ttt-grid" style="width:300px;height:300px;"></div>
+    </section>
+
+    <section id="view-snake" class="view">
+      <canvas id="snake-canvas" width="300" height="300"></canvas>
+    </section>
+
+    <section id="view-tw48" class="view">
+      <div id="tw-grid" style="width:300px;height:300px;"></div>
+    </section>
   </main>
+
   <script src="script.js"></script>
 </body>
 </html>
