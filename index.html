@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>现代游戏厅 · 单机合集</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🎮 现代游戏厅</div>
+    <nav class="nav">
+      <button class="nav-btn" data-view="home">主页</button>
+      <button class="nav-btn" data-view="gomoku">五子棋</button>
+      <button class="nav-btn" data-view="ttt">井字棋</button>
+      <button class="nav-btn" data-view="snake">贪吃蛇</button>
+      <button class="nav-btn" data-view="tw48">2048</button>
+    </nav>
+    <button id="open-panel" class="icon-btn">⚙️</button>
+  </header>
+  <main id="app">
+    <section id="view-home" class="view active">
+      <h1>单机小游戏 · 即点即玩</h1>
+      <p class="muted">零后台 · 手机优化 · 本地统计</p>
+      <div class="grid">
+        <button class="card" data-view="gomoku">⚫⚪ 五子棋</button>
+        <button class="card" data-view="ttt">❌⭕ 井字棋</button>
+        <button class="card" data-view="snake">🐍 贪吃蛇</button>
+        <button class="card" data-view="tw48">2048</button>
+      </div>
+    </section>
+    <section id="view-gomoku" class="view"><canvas id="gomoku-canvas"></canvas></section>
+    <section id="view-ttt" class="view"><div id="ttt-grid"></div></section>
+    <section id="view-snake" class="view"><canvas id="snake-canvas"></canvas></section>
+    <section id="view-tw48" class="view"><div id="tw-grid"></div></section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
